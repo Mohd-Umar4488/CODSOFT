@@ -6,29 +6,26 @@ public class NumberGame {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int minRange = 1;
-        int maxRange = 100;
         int maxAttempts = 10;
         int totalAttempts = 0;
+        int score = 0;
 
         boolean playAgain = true;
-
+        
         while (playAgain) {
-            int randomNumber = random.nextInt(maxRange - minRange + 1) + minRange;
+            int randomNumber = random.nextInt(100) + 1;
             int attempts = 0;
-
-            System.out.println("Welcome to the Guess the Number game!");
-            System.out.println("I've selected a number between " + minRange + " and " + maxRange
-                    + ". Can you guess it in " + maxAttempts + " attempts?");
+            System.out.println("Enter the number between 1 to 100: ");
+            System.out.println("You have only max attempts : " + maxAttempts);
 
             while (attempts < maxAttempts) {
                 System.out.print("Enter your guess: ");
                 int userGuess = scanner.nextInt();
                 attempts++;
-
+                totalAttempts = attempts;
                 if (userGuess == randomNumber) {
-                    System.out.println("Congratulations! You guessed the correct number in " + attempts + " attempts.");
-                    totalAttempts += attempts;
+                    System.out.println("Congratulations! You guessed the correct number.");
+                    score++;
                     break;
                 } else if (userGuess < randomNumber) {
                     System.out.println("Too low. Try again!");
@@ -44,8 +41,8 @@ public class NumberGame {
             if (playAgain) {
                 System.out.println("Let's play again!");
             } else {
-                System.out.println(
-                        "Thanks for playing! Your total score is based on the total attempts: " + totalAttempts);
+                System.out.println("Following is your score:");
+                System.out.println("Attempt :" + totalAttempts + "\nRounds won :" + score);
             }
         }
 

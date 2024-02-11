@@ -9,3 +9,4 @@ In summary, this repository is a robust and well-organized collection that eleva
 All tasks name are mentioned below that assigned to me during my internship:
 1. Number Game 
 2. Grade Calculator
+3. Student Course Registration System
